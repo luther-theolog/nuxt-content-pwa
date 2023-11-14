@@ -1,0 +1,7 @@
+# Version 1.0.0 rc.1
+This is version 1.0.0 rc.1 
+Its a clean nuxt-content, (almost) without css.
+
+I have to push this repo to GitHub before I can activate [giscus](https://giscus.app/){:target="_blank" .text-blue-500 .hover:text-blue-600 .transition-colors .duration-300 .justify-center}, a GitHub Commenting system.
+
+After publishing to GitHub I can go to [giscus](https://giscus.app/){:target="_blank" .text-blue-500 .hover:text-blue-600 .transition-colors .duration-300 .justify-center} and get the _repo-id_ and _repo-category_, who need to be transfered to `app.config.ts`.
