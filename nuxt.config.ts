@@ -23,33 +23,20 @@ export default defineNuxtConfig({
     registerType: 'autoUpdate',
     workbox: {
       navigateFallback: '/',
-      globPatterns: ['**/*.{js,css,html,json,svg,webp,ico}'],
+      globPatterns: ['**/*.{js,css,html,json,svg,png,webmanifest}'],
       globIgnores: ['google*.html'],
       navigateFallbackDenylist: [/^\/.*\\?giscus=.*/, /^\/.*\\?api.*/],
       runtimeCaching: [
         {
-          urlPattern: ({ url }) => { return url.pathname.startsWith('/api') },
-          handler: 'CacheFirst' as const,
-          options: {
-            cacheName: 'api-cache',
-            cacheableResponse: {
-              statuses: [0, 200]
-            }
-          }
-        },
+          urlPattern: ({ url, sameOrigin }) => sameOrigin && url.pathname.match(/^\/.*(avatar|favicon).*/i),
+          handler: 'NetworkFirst' as const,
+          options: { cacheName: 'homepage' }
+        }, // Every article have to be visited before it is cached
         {
-          urlPattern: ({ url }) => { return url.pathname.startsWith('/api') },
-          handler: 'NetworkOnly',
-          method: 'POST',
-          options: {
-            backgroundSync: {
-              name: 'backgroundsync',
-              options: {
-                maxRetentionTime: 24 * 60
-              }
-            }
-          }
-        }
+          urlPattern: ({ url, sameOrigin }) => sameOrigin && url.pathname.match(/^\/(api|article)\/.*/i),
+          handler: 'NetworkFirst' as const,
+          options: { cacheName: 'articles' }
+        } // when this is cached - the frontpage is working offline
       ]
     },
     devOptions: {
