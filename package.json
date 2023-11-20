@@ -1,6 +1,6 @@
 {
   "name": "nuxt-content-pwa",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A clean nuxt-content project with giscus, a GitHub commenting system.",
   "type": "module",
   "scripts": {
@@ -11,19 +11,19 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
+    "@giscus/vue": "^2.3.0",
     "@nuxt/content": "^2.9.0",
     "@nuxt/ui-edge": "latest",
+    "@vite-pwa/nuxt": "^0.2.3",
+    "@vueuse/nuxt": "^10.4.1",
     "nuxt": "^3.8.1"
   },
-  "dependencies": {
-    "@giscus/vue": "^2.3.0",
-    "@vite-pwa/nuxt": "^0.2.3"
-  },
   "keywords": [
+    "giscus",
     "nuxt",
     "nuxt-content",
     "nuxt/ui",
     "pwa",
-    "giscus"
+    "vueuse"
   ]
 }

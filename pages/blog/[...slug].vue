@@ -3,6 +3,6 @@
         <div>
             <ContentDoc />
         </div>
-        <GithubComments />
+        <GiscusGithubComments />
     </div>
 </template>
