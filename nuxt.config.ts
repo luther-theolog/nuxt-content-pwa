@@ -25,10 +25,14 @@ export default defineNuxtConfig({
       navigateFallback: '/',
       globPatterns: ['**/*.{js,css,html,json,svg,png,webmanifest}'],
       globIgnores: ['google*.html'],
-      navigateFallbackDenylist: [/^\/.*\\?giscus=.*/, /^\/.*\\?api.*/],
+      navigateFallbackDenylist: [
+        /^\/.*\\?giscus=.*/, 
+        /^\/.*\\?api.*/,
+        /^\/privacy.*/
+      ],
       runtimeCaching: [
         {
-          urlPattern: ({ url, sameOrigin }) => sameOrigin && url.pathname.match(/^\/.*(avatar|favicon).*/i),
+          urlPattern: ({ url, sameOrigin }) => sameOrigin && url.pathname.match(/^\/.*(avatar|favicon|privacy|manifest|).*/i),
           handler: 'NetworkFirst' as const,
           options: { cacheName: 'homepage' }
         }, // Every article have to be visited before it is cached
@@ -36,7 +40,7 @@ export default defineNuxtConfig({
           urlPattern: ({ url, sameOrigin }) => sameOrigin && url.pathname.match(/^\/(api|article)\/.*/i),
           handler: 'NetworkFirst' as const,
           options: { cacheName: 'articles' }
-        } // when this is cached - the frontpage is working offline
+        }, // when this is cached - the frontpage is working offline
       ]
     },
     devOptions: {

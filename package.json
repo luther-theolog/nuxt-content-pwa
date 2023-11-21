@@ -1,7 +1,7 @@
 {
   "name": "nuxt-content-pwa",
-  "version": "1.0.2",
-  "description": "A clean nuxt-content project with giscus, a GitHub commenting system.",
+  "version": "1.0.3-rc.1",
+  "description": "A clean nuxt-content project with giscus, a GitHub commenting plugin.",
   "type": "module",
   "scripts": {
     "dev": "nuxi dev",

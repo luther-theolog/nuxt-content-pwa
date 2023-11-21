@@ -164,7 +164,6 @@ footer button:hover {
   position: absolute;
   bottom: 13px;
   left: 9px;
-  border-width: 0 2px;
 }
 
 /*

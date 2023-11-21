@@ -10,7 +10,8 @@ const items = [
     icon: 'i-heroicons-book-open'
   }, {
     label: 'Privacy',
-    to: '/privacy',
+    to: '/privacy.txt',
+    target: '_blank',
     icon: 'i-heroicons-megaphone'
   }, {
     label: 'Blog',
